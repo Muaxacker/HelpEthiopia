@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # HelpEthiopia - Smart Donation Platform
 
 A vanilla HTML, CSS, and JavaScript donation matching platform connecting donors with verified recipients across Ethiopia.
@@ -212,3 +213,6 @@ For questions or issues:
 **Built with ❤️ for the Ethiopian community**
 
 *No frameworks, no dependencies, just pure HTML, CSS, and JavaScript!*
+=======
+# HelpEthiopia
+>>>>>>> b9237e795f9870f91db684cf57e87d881f7d8325
