@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donor Dashboard - HelpEthiopia</title>
+    <link rel="icon" type="image/jpeg" href="images/download.jpg">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">Donor<span>View</span></div>
+            <div class="nav-links">
+                <a href="donate.html" class="btn btn-primary">New Donation</a>
+                <a href="profile.html">Profile</a>
+                <a href="index.html" class="btn-login" style="background-color: #555;">Logout</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="dashboard-container">
+        <h2>My Donations - Status Tracker</h2>
+        <p style="margin-bottom: 20px;">Review the progress of the items you have kindly offered.</p>
+        
+        <div style="overflow-x: auto;">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Item Name</th>
+                        <th>Category</th>
+                        <th>Date Posted</th>
+                        <th>Status</th>
+                        <th>Recipient/NGO</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody id="donorTableBody">
+                    <!-- Mock Data filtered for Donations and a specific user -->
+                    <tr>
+                        <td data-label="Item Name">Winter Jacket</td>
+                        <td data-label="Category">Clothes</td>
+                        <td data-label="Date Posted">2025-11-20</td>
+                        <td data-label="Status" style="color: orange; font-weight: bold;">Pending</td>
+                        <td data-label="Recipient/NGO">N/A</td>
+                        <td data-label="Details"><a href="posted-item.html" style="color: var(--primary-green);">View</a></td>
+                    </tr>
+                    <tr>
+                        <td data-label="Item Name">Laptop for Student</td>
+                        <td data-label="Category">Electronics</td>
+                        <td data-label="Date Posted">2025-11-18</td>
+                        <td data-label="Status" style="color: var(--primary-green); font-weight: bold;">Accepted</td>
+                        <td data-label="Recipient/NGO">Hope Center NGO</td>
+                        <td data-label="Details"><a href="posted-item.html" style="color: var(--primary-green);">View</a></td>
+                    </tr>
+                    <tr>
+                        <td data-label="Item Name">Canned Food Pack</td>
+                        <td data-label="Category">Food</td>
+                        <td data-label="Date Posted">2025-11-15</td>
+                        <td data-label="Status" style="color: blue; font-weight: bold;">Completed</td>
+                        <td data-label="Recipient/NGO">Jane D.</td>
+                        <td data-label="Details"><a href="#" style="color: var(--primary-green);">Receipt</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <a href="donate.html" class="btn btn-primary" style="margin-top: 20px;">Post Another Donation</a>
+    </div>
+</body>
+</html>

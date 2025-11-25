@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browse Items - HelpEthiopia</title>
+    <link rel="icon" type="image/jpeg" href="images/download.jpg">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">Help<span>Ethiopia</span></div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="items.html" class="active">Browse Items</a></li>
+                <li><a href="donate.html">Donate</a></li>
+                <li><a href="request.html">Request</a></li>
+                <li><a href="map.html">Map</a></li>
+            </ul>
+            <div class="auth-links" style="display:flex; gap: 10px;">
+                <a href="signup.html" class="btn" style="background: none; color: var(--dark); padding: 8px 15px; border: 1px solid #ccc;">Sign Up</a>
+                <a href="login.html" class="btn-login">Login</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h2 style="text-align: center; margin-bottom: 20px;">Find Donations & Requests</h2>
+        
+        <!-- SEARCH & FILTER SECTION -->
+        <div class="search-container">
+            <input type="text" id="searchItem" placeholder="Search items by name or location..." class="search-input">
+            
+            <select id="categoryFilter" class="filter-select">
+                <option value="">All Categories</option>
+                <option value="Food">Food</option>
+                <option value="Clothes">Clothes</option>
+                <option value="Books">Books</option>
+                <option value="Hygiene">Hygiene</option>
+                <option value="Electronics">Electronics</option>
+            </select>
+
+            <select id="typeFilter" class="filter-select">
+                <option value="">All Types</option>
+                <option value="Donation">Donations</option>
+                <option value="Request">Requests</option>
+            </select>
+        </div>
+
+        <!-- GRID CONTAINER FOR ITEMS -->
+        <div id="postedItemsContainer" class="items-grid">
+            <!-- JavaScript will inject cards here -->
+        </div>
+    </div>
+
+    <!-- Script Loading: Mock data first, then logic -->
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item Details - HelpEthiopia</title>
+    <link rel="icon" type="image/jpeg" href="images/download.jpg">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .detail-container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .detail-header {
+            background: linear-gradient(135deg, var(--primary-green), var(--primary-yellow));
+            padding: 30px;
+            color: white;
+        }
+        
+        .detail-content {
+            padding: 40px;
+        }
+        
+        .detail-image {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .detail-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .detail-item {
+            padding: 15px;
+            background: var(--light);
+            border-radius: 10px;
+        }
+        
+        .detail-item strong {
+            display: block;
+            color: var(--primary-green);
+            margin-bottom: 5px;
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">Help<span>Ethiopia</span></div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="items.html">Browse Items</a></li>
+                <li><a href="donate.html">Donate</a></li>
+                <li><a href="request.html">Request</a></li>
+                <li><a href="map.html">Map</a></li>
+            </ul>
+            <div class="auth-links" style="display:flex; gap: 10px;">
+                <a href="signup.html" class="btn" style="background: none; color: var(--dark); padding: 8px 15px; border: 1px solid #ccc;">Sign Up</a>
+                <a href="login.html" class="btn-login">Login</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <a href="items.html" style="display: inline-block; margin-bottom: 20px; color: var(--primary-green);">
+            ← Back to Browse
+        </a>
+        
+        <div id="itemDetail" class="detail-container">
+            <!-- Content will be loaded by JavaScript -->
+        </div>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script>
+        // Get item ID from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const itemId = urlParams.get('id');
+
+        if (!itemId) {
+            document.getElementById('itemDetail').innerHTML = `
+                <div style="padding: 40px; text-align: center;">
+                    <h2>Item not found</h2>
+                    <p>The item you're looking for doesn't exist.</p>
+                    <a href="items.html" class="btn btn-primary">Browse All Items</a>
+                </div>
+            `;
+        } else {
+            const item = StorageManager.getItemById(itemId);
+            
+            if (!item) {
+                document.getElementById('itemDetail').innerHTML = `
+                    <div style="padding: 40px; text-align: center;">
+                        <h2>Item not found</h2>
+                        <p>The item you're looking for doesn't exist.</p>
+                        <a href="items.html" class="btn btn-primary">Browse All Items</a>
+                    </div>
+                `;
+            } else {
+                renderItemDetail(item);
+            }
+        }
+
+        function renderItemDetail(item) {
+            const urgencyColors = {
+                'Critical': 'var(--primary-red)',
+                'High': '#ff9800',
+                'Medium': '#ffc107',
+                'Low': 'var(--primary-green)'
+            };
+
+            const headerColor = item.type === 'Donation' 
+                ? 'linear-gradient(135deg, var(--primary-green), #45a049)' 
+                : 'linear-gradient(135deg, var(--primary-red), #ff6b4a)';
+
+            const datePosted = item.datePosted ? new Date(item.datePosted).toLocaleDateString() : 'Unknown';
+
+            document.getElementById('itemDetail').innerHTML = `
+                <div class="detail-header" style="background: ${headerColor};">
+                    <span class="badge" style="background: rgba(255,255,255,0.3); color: white; margin-bottom: 10px;">
+                        ${item.type}
+                    </span>
+                    ${item.urgency === 'Critical' || item.urgency === 'High' ? 
+                        '<span class="badge" style="background: rgba(255,255,255,0.3); color: white; margin-left: 10px;">Urgent</span>' : ''}
+                    <h1 style="font-size: 2.5rem; margin: 10px 0;">${item.name}</h1>
+                    <p style="font-size: 1.1rem; opacity: 0.9;">Posted on ${datePosted}</p>
+                </div>
+                
+                <div class="detail-content">
+                    <img src="${item.image}" alt="${item.name}" class="detail-image">
+                    
+                    <div class="detail-grid">
+                        <div class="detail-item">
+                            <strong>Category</strong>
+                            <span>${item.category}</span>
+                        </div>
+                        <div class="detail-item">
+                            <strong>Location</strong>
+                            <span>📍 ${item.location}</span>
+                        </div>
+                        <div class="detail-item">
+                            <strong>Status</strong>
+                            <span>${item.status}</span>
+                        </div>
+                        <div class="detail-item">
+                            <strong>Urgency</strong>
+                            <span style="color: ${urgencyColors[item.urgency]}; font-weight: bold;">${item.urgency}</span>
+                        </div>
+                        ${item.condition ? `
+                        <div class="detail-item">
+                            <strong>Condition</strong>
+                            <span>${item.condition}</span>
+                        </div>` : ''}
+                        ${item.quantity ? `
+                        <div class="detail-item">
+                            <strong>Quantity</strong>
+                            <span>${item.quantity}</span>
+                        </div>` : ''}
+                    </div>
+                    
+                    <div style="margin-top: 30px;">
+                        <h3 style="color: var(--primary-green); margin-bottom: 15px;">Description</h3>
+                        <p style="line-height: 1.8; color: #555;">${item.description}</p>
+                    </div>
+                    
+                    ${item.deliveryOption ? `
+                    <div style="margin-top: 20px;">
+                        <h3 style="color: var(--primary-green); margin-bottom: 15px;">Delivery</h3>
+                        <p style="line-height: 1.8; color: #555;">${item.deliveryOption}</p>
+                    </div>` : ''}
+                    
+                    <div class="action-buttons">
+                        ${item.type === 'Donation' ? `
+                            <button class="btn btn-primary" onclick="claimItem(${item.id})">
+                                Request This Item
+                            </button>
+                        ` : `
+                            <button class="btn btn-secondary" onclick="offerHelp(${item.id})">
+                                Offer Help
+                            </button>
+                        `}
+                        <button class="btn" style="background: #666; color: white;" onclick="shareItem(${item.id})">
+                            Share
+                        </button>
+                        <a href="map.html" class="btn" style="background: var(--primary-yellow); color: var(--dark);">
+                            View on Map
+                        </a>
+                    </div>
+                </div>
+            `;
+        }
+
+        function claimItem(itemId) {
+            const currentUser = StorageManager.getCurrentUser();
+            if (!currentUser) {
+                alert('Please login to request this item.');
+                window.location.href = 'login.html';
+                return;
+            }
+            
+            alert('Request sent! The donor will be notified.');
+            // In a real app, this would send a notification
+        }
+
+        function offerHelp(itemId) {
+            const currentUser = StorageManager.getCurrentUser();
+            if (!currentUser) {
+                alert('Please login to offer help.');
+                window.location.href = 'login.html';
+                return;
+            }
+            
+            alert('Your offer has been sent! The requester will be notified.');
+            // In a real app, this would send a notification
+        }
+
+        function shareItem(itemId) {
+            const url = window.location.href;
+            if (navigator.share) {
+                navigator.share({
+                    title: 'HelpEthiopia Item',
+                    text: 'Check out this item on HelpEthiopia',
+                    url: url
+                });
+            } else {
+                // Fallback: copy to clipboard
+                navigator.clipboard.writeText(url).then(() => {
+                    alert('Link copied to clipboard!');
+                });
+            }
+        }
+    </script>
+</body>
+</html>

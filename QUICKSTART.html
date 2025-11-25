@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick Start Guide - HelpEthiopia</title>
+    <link rel="icon" type="image/jpeg" href="images/download.jpg">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .guide-section {
+            background: white;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+        }
+        
+        .guide-section h2 {
+            color: var(--primary-green);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--primary-yellow);
+        }
+        
+        .step {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 25px;
+            align-items: start;
+        }
+        
+        .step-number {
+            background: var(--primary-green);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        .step-content h3 {
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .feature-card {
+            background: var(--light);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+        
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            color: var(--primary-red);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">Help<span>Ethiopia</span></div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="items.html">Browse Items</a></li>
+            </ul>
+            <a href="signup.html" class="btn-login">Get Started</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1 style="text-align: center; margin-bottom: 40px; font-size: 3rem;">
+            🚀 Quick Start Guide
+        </h1>
+
+        <div class="guide-section">
+            <h2>📋 What is HelpEthiopia?</h2>
+            <p style="font-size: 1.1rem; line-height: 1.8;">
+                HelpEthiopia is a smart donation platform that connects generous donors with verified recipients across Ethiopia. 
+                Built with pure HTML, CSS, and JavaScript, it requires no backend server and stores all data locally in your browser.
+            </p>
+        </div>
+
+        <div class="guide-section">
+            <h2>✨ Key Features</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎁</div>
+                    <h3>Post Donations</h3>
+                    <p>Share items you want to donate with photos and details</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📍</div>
+                    <h3>Make Requests</h3>
+                    <p>Request specific items with urgency levels</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🗺️</div>
+                    <h3>Interactive Map</h3>
+                    <p>See all donations and requests on a visual map</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔍</div>
+                    <h3>Search & Filter</h3>
+                    <p>Find exactly what you need with powerful filters</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💾</div>
+                    <h3>Data Persistence</h3>
+                    <p>All data saved locally in your browser</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Responsive Design</h3>
+                    <p>Works perfectly on all devices</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>🎯 Getting Started in 3 Steps</h2>
+            
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h3>Create Your Account</h3>
+                    <p>Click the <strong>"Sign Up"</strong> button in the navigation bar. Fill in your details and select your role:</p>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li>• <strong>Donor</strong> - If you want to donate items</li>
+                        <li>• <strong>Recipient</strong> - If you need assistance</li>
+                        <li>• <strong>NGO/Admin</strong> - If you represent an organization</li>
+                    </ul>
+                    <p style="margin-top: 10px;">
+                        <a href="signup.html" class="btn btn-primary">Sign Up Now →</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h3>Post or Browse</h3>
+                    <p><strong>If you're a donor:</strong></p>
+                    <ul style="margin-left: 20px; margin-top: 5px;">
+                        <li>• Click <strong>"Post a Donation"</strong></li>
+                        <li>• Fill in item details (name, category, condition, quantity)</li>
+                        <li>• Upload a photo (optional but recommended)</li>
+                        <li>• Add a description and submit</li>
+                    </ul>
+                    <p style="margin-top: 15px;"><strong>If you're a recipient:</strong></p>
+                    <ul style="margin-left: 20px; margin-top: 5px;">
+                        <li>• Click <strong>"Make a Request"</strong></li>
+                        <li>• Describe what you need</li>
+                        <li>• Set urgency level and location</li>
+                        <li>• Provide contact information</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h3>Connect & Help</h3>
+                    <p>Browse available items, use the map to find nearby donations/requests, and connect with others to make a difference!</p>
+                    <div style="display: flex; gap: 10px; margin-top: 15px; flex-wrap: wrap;">
+                        <a href="items.html" class="btn btn-primary">Browse Items</a>
+                        <a href="map.html" class="btn btn-secondary">View Map</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>🔧 Technical Information</h2>
+            <p><strong>No Installation Required!</strong> Just open <code>index.html</code> in your browser.</p>
+            
+            <h3 style="margin-top: 20px; margin-bottom: 10px;">Technologies Used:</h3>
+            <ul style="margin-left: 20px; line-height: 2;">
+                <li>• <strong>HTML5</strong> - Semantic markup</li>
+                <li>• <strong>CSS3</strong> - Custom styles (no Bootstrap or Tailwind)</li>
+                <li>• <strong>Vanilla JavaScript</strong> - No frameworks or libraries</li>
+                <li>• <strong>LocalStorage</strong> - Data persistence</li>
+                <li>• <strong>SessionStorage</strong> - User sessions</li>
+            </ul>
+
+            <h3 style="margin-top: 20px; margin-bottom: 10px;">File Structure:</h3>
+            <pre style="background: #f4f4f4; padding: 15px; border-radius: 8px; overflow-x: auto;">
+├── index.html              # Homepage
+├── items.html              # Browse items
+├── donate.html             # Post donation
+├── request.html            # Make request
+├── map.html                # Interactive map
+├── item-detail.html        # Item details
+├── login.html              # User login
+├── signup.html             # Registration
+├── dashboard.html          # User dashboard
+├── css/
+│   └── style.css          # All styles
+├── js/
+│   ├── data.js            # Data management
+│   ├── main.js            # Items functionality
+│   └── utils.js           # Utilities
+└── images/                # Assets
+            </pre>
+        </div>
+
+        <div class="guide-section">
+            <h2>💡 Tips & Best Practices</h2>
+            <ul style="margin-left: 20px; line-height: 2;">
+                <li>• <strong>Upload clear photos</strong> of items to increase trust</li>
+                <li>• <strong>Be specific</strong> in descriptions (size, condition, expiry dates)</li>
+                <li>• <strong>Set accurate locations</strong> for easier matching</li>
+                <li>• <strong>Use urgency levels</strong> appropriately for requests</li>
+                <li>• <strong>Check the map</strong> to find nearby donations/requests</li>
+                <li>• <strong>Update your dashboard</strong> regularly</li>
+            </ul>
+        </div>
+
+        <div class="guide-section">
+            <h2>❓ Frequently Asked Questions</h2>
+            
+            <h3 style="margin-top: 20px;">Is my data safe?</h3>
+            <p>All data is stored locally in your browser using localStorage. No data is sent to external servers.</p>
+
+            <h3 style="margin-top: 20px;">Can I use this without internet?</h3>
+            <p>Once loaded, the app works offline. However, you need internet to initially load the page and external resources (fonts, icons).</p>
+
+            <h3 style="margin-top: 20px;">How do I delete my data?</h3>
+            <p>Clear your browser's localStorage or use the delete buttons in your dashboard.</p>
+
+            <h3 style="margin-top: 20px;">Can I use this on mobile?</h3>
+            <p>Yes! The platform is fully responsive and works on all devices.</p>
+
+            <h3 style="margin-top: 20px;">Is this production-ready?</h3>
+            <p>This is a demonstration project. For production use, you should add server-side authentication, database storage, and proper security measures.</p>
+        </div>
+
+        <div style="text-align: center; padding: 40px 0;">
+            <h2 style="margin-bottom: 20px;">Ready to Make a Difference?</h2>
+            <a href="signup.html" class="btn btn-primary" style="padding: 15px 40px; font-size: 1.2rem;">
+                Get Started Now →
+            </a>
+        </div>
+    </div>
+
+    <footer class="footer-main">
+        <div class="footer-bottom">
+            <p>&copy; 2025 HelpEthiopia. All Rights Reserved.</p>
+            <p>Built with purpose for the Ethiopian community.</p>
+        </div>
+    </footer>
+</body>
+</html>

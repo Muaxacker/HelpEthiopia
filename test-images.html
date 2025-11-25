@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Test - HelpEthiopia</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #f7f7f7;
+        }
+        .test-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .test-card {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .test-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        .test-card h3 {
+            margin: 10px 0 5px 0;
+            color: #2d963c;
+        }
+        .test-card p {
+            margin: 5px 0;
+            font-size: 14px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <h1>🖼️ Image Test - Browse Items</h1>
+    <p>Testing all images from the items database:</p>
+    
+    <div class="test-grid" id="testGrid"></div>
+
+    <script src="js/data.js"></script>
+    <script>
+        const testGrid = document.getElementById('testGrid');
+        const items = StorageManager.getItems();
+        
+        items.forEach(item => {
+            const card = document.createElement('div');
+            card.className = 'test-card';
+            card.innerHTML = `
+                <img src="${item.image}" alt="${item.name}" onerror="this.style.border='3px solid red'; this.alt='❌ Image not found'">
+                <h3>${item.name}</h3>
+                <p><strong>Type:</strong> ${item.type}</p>
+                <p><strong>Category:</strong> ${item.category}</p>
+                <p><strong>Image Path:</strong> ${item.image}</p>
+            `;
+            testGrid.appendChild(card);
+        });
+    </script>
+</body>
+</html>

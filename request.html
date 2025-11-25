@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Item - HelpEthiopia</title>
+    <link rel="icon" type="image/jpeg" href="images/download.jpg">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">Help<span>Ethiopia</span></div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="items.html">Browse Items</a></li>
+                <li><a href="donate.html">Donate</a></li>
+                <li><a href="request.html" class="active">Request</a></li>
+                <li><a href="map.html">Map</a></li>
+            </ul>
+            <div class="auth-links" style="display:flex; gap: 10px;">
+                <a href="signup.html" class="btn" style="background: none; color: var(--dark); padding: 8px 15px; border: 1px solid #ccc;">Sign Up</a>
+                <a href="login.html" class="btn-login">Login</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h2 style="text-align: center; color: var(--primary-red);">Request Assistance</h2>
+        <p style="text-align: center; color: #666;">NGOs and verified recipients can post their urgent needs here.</p>
+        
+        <div class="form-container">
+            <form id="requestForm">
+                <div class="form-group">
+                    <label>What do you need?</label>
+                    <input type="text" class="form-control" placeholder="e.g. School Books for Grade 9" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Category</label>
+                    <select class="form-control">
+                        <option value="Food">Food</option>
+                        <option value="Clothes">Clothes</option>
+                        <option value="Books">Books</option>
+                        <option value="Hygiene">Hygiene</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Urgency Level</label>
+                    <select class="form-control" style="border-left: 5px solid var(--primary-red);">
+                        <option value="Low">Low - Can wait a few weeks</option>
+                        <option value="Medium">Medium - Need within a week</option>
+                        <option value="High">High - Need in 2-3 days</option>
+                        <option value="Critical">Critical - Need Immediately</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Location (City/Sub-city)</label>
+                    <input type="text" class="form-control" placeholder="e.g. Addis Ababa, Bole" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Contact Phone</label>
+                    <input type="tel" class="form-control" placeholder="+251..." required>
+                </div>
+
+                <button type="submit" class="btn btn-secondary" style="width: 100%;">Submit Request</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Load data.js for StorageManager -->
+    <script src="js/data.js"></script>
+    <script src="js/utils.js"></script>
+    <script>
+        document.getElementById('requestForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Validate form
+            if (!FormValidator.validateForm(this)) {
+                Notification.error('Please fill in all required fields correctly');
+                return;
+            }
+            
+            // Get form values
+            const formData = {
+                type: 'Request',
+                name: this.querySelectorAll('input[type="text"]')[0].value,
+                category: this.querySelector('select').value,
+                urgency: this.querySelectorAll('select')[1].value,
+                location: this.querySelectorAll('input[type="text"]')[1].value,
+                contactPhone: this.querySelector('input[type="tel"]').value,
+                description: 'Contact: ' + this.querySelector('input[type="tel"]').value,
+                image: 'https://placehold.co/300x200?text=' + encodeURIComponent(this.querySelectorAll('input[type="text"]')[0].value)
+            };
+
+            // Save to localStorage
+            const newItem = StorageManager.addItem(formData);
+            
+            // Show success notification
+            Notification.success('Request submitted successfully!');
+            
+            // Show success message
+            document.querySelector('.container').innerHTML = `
+                <div style="text-align: center; padding: 50px;">
+                    <h1 style="color: var(--primary-red); font-size: 3rem;">⚠️ Request Submitted!</h1>
+                    <p style="font-size: 1.2rem; margin-bottom: 30px;">Your request has been saved and is now visible to donors.</p>
+                    <a href="items.html" class="btn btn-secondary">Browse Available Donations</a>
+                    <a href="item-detail.html?id=${newItem.id}" class="btn" style="background: #666; color: white; margin-left: 10px;">View Your Request</a>
+                    <a href="request.html" class="btn btn-primary" style="margin-left: 10px;">Submit Another</a>
+                </div>
+            `;
+        });
+    </script>
+</body>
+</html>

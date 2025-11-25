@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - HelpEthiopia</title>
+    <link rel="icon" type="image/jpeg" href="images/download.jpg">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">Help<span>Ethiopia</span></div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container" style="display: flex; justify-content: center; align-items: center; min-height: 80vh;">
+        <div class="form-container" style="width: 100%;">
+            <h2 style="text-align: center; margin-bottom: 20px;">Welcome Back</h2>
+            
+            <!-- Action points to Admin Dashboard for simulation -->
+            <form action="dashboard-admin.html"> 
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Login As:</label>
+                    <select class="form-control">
+                        <option value="donor">Donor</option>
+                        <option value="recipient">Recipient / NGO</option>
+                        <option value="admin">Admin (Simulated)</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Login</button>
+                <p style="text-align: center; margin-top: 15px;">
+                    Don't have an account? <a href="signup.html" style="color: var(--primary-green); font-weight: bold;">Sign up here</a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/utils.js"></script>
+    <script>
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Validate form
+            if (!FormValidator.validateForm(this)) {
+                Notification.error('Please fill in all required fields');
+                return;
+            }
+            
+            const email = this.querySelector('input[type="email"]').value;
+            const password = this.querySelector('input[type="password"]').value;
+            const loginAs = this.querySelector('select').value;
+            
+            // Find user
+            const users = StorageManager.getUsers();
+            const user = users.find(u => u.email === email && u.password === password);
+            
+            if (!user) {
+                Notification.error('Invalid email or password. Please try again.');
+                return;
+            }
+            
+            // Show success notification
+            Notification.success('Login successful!');
+            
+            // Set as current user
+            StorageManager.setCurrentUser({
+                id: user.id,
+                fullName: user.fullName,
+                email: user.email,
+                role: user.role
+            });
+            
+            // Redirect based on role after short delay
+            setTimeout(() => {
+                if (loginAs === 'admin') {
+                    window.location.href = 'dashboard-admin.html';
+                } else if (loginAs === 'donor') {
+                    window.location.href = 'dashboard-donor.html';
+                } else {
+                    window.location.href = 'dashboard.html';
+                }
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

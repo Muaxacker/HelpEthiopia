@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HelpEthiopia - Smart Donation Platform</title>
+    <link rel="icon" type="image/jpeg" href="images/download.jpg">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Font Awesome for social icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">Help<span>Ethiopia</span></div>
+            <ul class="nav-links">
+                <li><a href="#hero" class="active">Home</a></li>
+                <li><a href="#mission">Our Mission</a></li>
+                <li><a href="#process">How It Works</a></li>
+                <li><a href="items.html">Browse Items</a></li> 
+                <li><a href="map.html">Map View</a></li>
+            </ul>
+            <div class="auth-links" style="display:flex; gap: 10px;">
+                <a href="signup.html" class="btn" style="background: none; color: var(--dark); padding: 8px 15px; border: 1px solid #ccc;">Sign Up</a>
+                <a href="login.html" class="btn-login">Login</a>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- 1. Hero Section (High Impact) -->
+    <section class="container hero-section" id="hero">
+        <div class="hero-text" style="max-width: 55%;">
+            <div class="pill-badge" style="display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; border-radius: 50px; background: rgba(45, 150, 60, 0.1); color: var(--primary-green); font-weight: 700; font-size: 0.875rem; margin-bottom: 20px;">
+                <span style="width: 8px; height: 8px; border-radius: 50%; background: var(--primary-green); animation: pulse 2s ease-in-out infinite;"></span>
+                Community-first • Verified • Local
+            </div>
+            <h1 class="hero-title">
+                The Smart Way to Give and Get in <span style="color: var(--primary-red);">Ethiopia</span>.
+            </h1>
+            <p style="font-size: 1.35rem; margin-bottom: 40px; color: #555; font-weight: 500;">
+                Connect directly with verified local needs. HelpEthiopia is the transparent, organized bridge making generosity efficient and impactful.
+            </p>
+            <div class="hero-buttons" style="display: flex; gap: 15px; flex-wrap: wrap;">
+                <a href="donate.html" class="btn btn-primary">Post a Donation</a>
+                <a href="request.html" class="btn btn-secondary">Make a Request</a>
+            </div>
+        </div>
+        
+        <div class="hero-image" style="max-width: 45%; min-width: 350px; text-align: right; position: relative;">
+             <!-- Hero image showing community connection -->
+            <img src="images/digital connection Africa.jpg" alt="Digital community connection in Ethiopia" style="width: 100%; height: auto; border-radius: 20px; box-shadow: 0 15px 30px rgba(0,0,0,0.15);">
+            
+            <!-- Floating info card -->
+            <div class="floating-info-card" style="position: absolute; bottom: 20px; left: 20px; background: white; padding: 15px 20px; border-radius: 12px; box-shadow: 0 8px 30px rgba(0,0,0,0.15); display: flex; align-items: center; gap: 12px; animation: floatUp 3s ease-in-out infinite;">
+                <div style="width: 50px; height: 50px; border-radius: 10px; background: linear-gradient(135deg, var(--primary-green), var(--primary-yellow)); display: flex; align-items: center; justify-content: center; color: white; font-size: 24px;">
+                    📍
+                </div>
+                <div>
+                    <strong style="display: block; font-size: 14px; color: var(--dark);">Live Donations</strong>
+                    <span style="font-size: 13px; color: #666;">120+ items available</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 2. Mission & Vision Section (OrphanCare / Wegenfund Scrollable Content) -->
+    <section class="container mission-section" id="mission">
+        <h2 style="font-size: 2.5rem; text-align: center; margin-bottom: 50px;">Our Vision: Impacting Lives Together</h2>
+        
+        <div class="mission-content">
+            <div class="mission-text">
+                <h3 style="font-size: 1.8rem; color: var(--primary-green); margin-bottom: 15px;">Transparency, Efficiency, Trust.</h3>
+                <p style="margin-bottom: 20px;">
+                    We believe in dignified giving. HelpEthiopia ensures that every donated item, from clothes to medical supplies, is precisely matched with a verifiable need in Ethiopian communities. Our platform cuts through bureaucracy, connecting donors directly with NGOs and verified recipients.
+                </p>
+                <p style="margin-bottom: 30px;">
+                    This is where the kindness of the diaspora and local citizens meets the urgent requirements of those on the ground. We track every item from posting to delivery, guaranteeing that your effort creates tangible change.
+                </p>
+                <a href="about.html" class="btn btn-primary" style="background-color: var(--primary-red);">Read Our Full Story →</a>
+            </div>
+            
+            <div class="mission-visual">
+                <!-- Placeholder for the user-provided short mission video (Wegenfund inspiration) -->
+                <div style="background-color: var(--dark); padding: 50px; border-radius: 15px; text-align: center; color: white;">
+                    <h4 style="margin-bottom: 10px;">🎥 Mission Video Placeholder</h4>
+                    <p>This is where your short video explaining the mission will be integrated.</p>
+                    <p style="font-size: 0.9rem; margin-top: 15px; color: #ccc;">To add your video, replace this section with a video element or embed code.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. How It Works Section (Freecycle Content Focus) -->
+    <section class="container how-it-works" id="process">
+        <h2 style="font-size: 2.5rem; margin-bottom: 10px;">Simple Steps to Smart Giving</h2>
+        <p style="font-size: 1.1rem; color: #666;">Inspired by Freecycle's concept, our process is streamlined for maximum impact and minimal fuss.</p>
+        
+        <div class="process-grid">
+            <div class="step-card">
+                <div class="step-icon">🎁</div>
+                <h3>1. Post It</h3>
+                <p>Donors quickly list their items (food, books, electronics) with photos and location details.</p>
+            </div>
+            <div class="step-card" style="border-top-color: var(--primary-red);">
+                <div class="step-icon">📍</div>
+                <h3>2. Pin the Need</h3>
+                <p>Recipients/NGOs post requests, marking their location and urgency on the Live Map.</p>
+            </div>
+            <div class="step-card" style="border-top-color: var(--primary-yellow);">
+                <div class="step-icon">🤝</div>
+                <h3>3. Smart Match</h3>
+                <p>The platform matches nearby donations to active requests based on need and location.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-icon">✅</div>
+                <h3>4. Track & Complete</h3>
+                <p>Users confirm and track the exchange until the item is safely delivered to the recipient.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Impact Section (Visual Stats - Byside Community Care Style) -->
+    <section class="impact-section" id="impact">
+        <h2 style="font-size: 2.5rem;">Our Impact in Numbers</h2>
+        <p style="font-size: 1.1rem; margin-bottom: 40px;">Metrics of Change, fueled by your generosity.</p>
+        
+        <div class="impact-grid">
+            <div class="impact-stat">
+                <h2>120+</h2>
+                <p>Items Donated</p>
+            </div>
+            <div class="impact-stat">
+                <h2>1.5K+</h2>
+                <p>Lives Touched</p>
+            </div>
+            <div class="impact-stat">
+                <h2>15</h2>
+                <p>Verified NGOs</p>
+            </div>
+            <div class="impact-stat">
+                <h2>100%</h2>
+                <p>Transaction Success</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Live Recent Donations Feed -->
+    <section class="container" style="padding-top: 60px; padding-bottom: 60px;">
+        <h2 style="font-size: 2.5rem; text-align: center; margin-bottom: 15px;">See What's Happening Right Now</h2>
+        <p style="text-align: center; color: #666; font-size: 1.1rem; margin-bottom: 40px;">Real donations and requests from our community</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px;">
+            <div class="step-card fade-up" style="border-top-color: var(--primary-green);">
+                <img src="images/jacket.jpg" alt="Winter Jacket" style="width: 100%; height: 180px; object-fit: cover; border-radius: 10px; margin-bottom: 15px;">
+                <span style="background: var(--primary-green); color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 600;">Donation</span>
+                <h4 style="margin-top: 10px; margin-bottom: 8px;">Winter Jacket</h4>
+                <p style="color: #666; font-size: 0.95rem;">Addis Ababa, Bole • Posted 2h ago</p>
+            </div>
+            
+            <div class="step-card fade-up" style="border-top-color: var(--primary-red);">
+                <img src="images/extrem book.jpg" alt="School Books" style="width: 100%; height: 180px; object-fit: cover; border-radius: 10px; margin-bottom: 15px;">
+                <span style="background: var(--primary-red); color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 600;">Request</span>
+                <h4 style="margin-top: 10px; margin-bottom: 8px;">School Textbooks</h4>
+                <p style="color: #666; font-size: 0.95rem;">Hawassa • Urgent</p>
+            </div>
+            
+            <div class="step-card fade-up" style="border-top-color: var(--primary-green);">
+                <img src="images/icon food donation.jpg" alt="Food Pack" style="width: 100%; height: 180px; object-fit: cover; border-radius: 10px; margin-bottom: 15px;">
+                <span style="background: var(--primary-green); color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 600;">Donation</span>
+                <h4 style="margin-top: 10px; margin-bottom: 8px;">Canned Food Pack</h4>
+                <p style="color: #666; font-size: 0.95rem;">Adama • Posted 5h ago</p>
+            </div>
+            
+            <div class="step-card fade-up" style="border-top-color: var(--primary-red);">
+                <img src="images/first-aid-1.jpg" alt="First Aid" style="width: 100%; height: 180px; object-fit: cover; border-radius: 10px; margin-bottom: 15px;">
+                <span style="background: var(--primary-red); color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 600;">Request</span>
+                <h4 style="margin-top: 10px; margin-bottom: 8px;">First Aid Kits</h4>
+                <p style="color: #666; font-size: 0.95rem;">Gondar • Critical</p>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="items.html" class="btn btn-primary" style="padding: 12px 35px;">View All Items →</a>
+        </div>
+    </section>
+
+    <!-- 6. Success Stories -->
+    <section class="container" style="padding-top: 60px; padding-bottom: 60px; background-color: var(--white);">
+        <h2 style="font-size: 2.5rem; text-align: center; margin-bottom: 15px;">Stories of Impact</h2>
+        <p style="text-align: center; color: #666; font-size: 1.1rem; margin-bottom: 50px;">Real people, real change, real community</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 35px;">
+            <div class="fade-up" style="background: white; border-radius: 15px; overflow: hidden; box-shadow: var(--shadow);">
+                <img src="images/Ethiopian volunteers sorting.jpg" alt="Volunteers sorting donations" style="width: 100%; height: 220px; object-fit: cover;">
+                <div style="padding: 25px;">
+                    <h3 style="color: var(--primary-green); margin-bottom: 12px;">50 Students Received School Supplies</h3>
+                    <p style="color: #666; line-height: 1.7; margin-bottom: 15px;">
+                        "Thanks to generous donors, we equipped an entire classroom in Hawassa with books, pens, and backpacks. The children's faces lit up with hope for their education."
+                    </p>
+                    <p style="font-weight: 600; color: var(--dark);">— Sarah M., NGO Coordinator</p>
+                </div>
+            </div>
+            
+            <div class="fade-up" style="background: white; border-radius: 15px; overflow: hidden; box-shadow: var(--shadow);">
+                <img src="images/giving food.jpg" alt="Food distribution" style="width: 100%; height: 220px; object-fit: cover;">
+                <div style="padding: 25px;">
+                    <h3 style="color: var(--primary-green); margin-bottom: 12px;">Community Kitchen Fed 200 Families</h3>
+                    <p style="color: #666; line-height: 1.7; margin-bottom: 15px;">
+                        "Through HelpEthiopia, we connected with local donors who provided food supplies. We've been able to serve hot meals to families in need every week."
+                    </p>
+                    <p style="font-weight: 600; color: var(--dark);">— Michael T., Community Leader</p>
+                </div>
+            </div>
+            
+            <div class="fade-up" style="background: white; border-radius: 15px; overflow: hidden; box-shadow: var(--shadow);">
+                <img src="images/Clothing Donation Near Me.jpg" alt="Clothing donation" style="width: 100%; height: 220px; object-fit: cover;">
+                <div style="padding: 25px;">
+                    <h3 style="color: var(--primary-green); margin-bottom: 12px;">Winter Warmth for 100 Children</h3>
+                    <p style="color: #666; line-height: 1.7; margin-bottom: 15px;">
+                        "The platform made it so easy to donate our gently used winter clothes. Knowing they went directly to children who needed them made all the difference."
+                    </p>
+                    <p style="font-weight: 600; color: var(--dark);">— Alem K., Donor</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Categories Overview -->
+    <section class="container" style="padding-top: 60px; padding-bottom: 60px;">
+        <h2 style="font-size: 2.5rem; text-align: center; margin-bottom: 15px;">Browse by Category</h2>
+        <p style="text-align: center; color: #666; font-size: 1.1rem; margin-bottom: 40px;">Find exactly what you're looking for</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+            <a href="items.html?category=Food" class="step-card fade-up" style="text-decoration: none; color: inherit; border-top-color: var(--primary-yellow); cursor: pointer;">
+                <div style="font-size: 3rem; margin-bottom: 10px;">🍲</div>
+                <h4>Food</h4>
+                <p style="color: #666;">120+ items</p>
+            </a>
+            
+            <a href="items.html?category=Clothes" class="step-card fade-up" style="text-decoration: none; color: inherit; border-top-color: var(--primary-green); cursor: pointer;">
+                <div style="font-size: 3rem; margin-bottom: 10px;">👕</div>
+                <h4>Clothes</h4>
+                <p style="color: #666;">85+ items</p>
+            </a>
+            
+            <a href="items.html?category=Books" class="step-card fade-up" style="text-decoration: none; color: inherit; border-top-color: var(--primary-red); cursor: pointer;">
+                <div style="font-size: 3rem; margin-bottom: 10px;">📚</div>
+                <h4>Books</h4>
+                <p style="color: #666;">65+ items</p>
+            </a>
+            
+            <a href="items.html?category=Electronics" class="step-card fade-up" style="text-decoration: none; color: inherit; border-top-color: var(--primary-yellow); cursor: pointer;">
+                <div style="font-size: 3rem; margin-bottom: 10px;">💻</div>
+                <h4>Electronics</h4>
+                <p style="color: #666;">40+ items</p>
+            </a>
+            
+            <a href="items.html?category=Hygiene" class="step-card fade-up" style="text-decoration: none; color: inherit; border-top-color: var(--primary-green); cursor: pointer;">
+                <div style="font-size: 3rem; margin-bottom: 10px;">🧼</div>
+                <h4>Hygiene</h4>
+                <p style="color: #666;">55+ items</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- 8. Partner NGOs -->
+    <section class="container" style="padding-top: 60px; padding-bottom: 60px; background-color: var(--white);">
+        <h2 style="font-size: 2.5rem; text-align: center; margin-bottom: 15px;">Trusted by Leading Organizations</h2>
+        <p style="text-align: center; color: #666; font-size: 1.1rem; margin-bottom: 50px;">Working together to create lasting impact</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; align-items: center;">
+            <div class="fade-up" style="background: white; padding: 30px; border-radius: 12px; box-shadow: var(--shadow); text-align: center;">
+                <img src="images/NGO Vibha Parab.jpg" alt="NGO Partner" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 15px;">
+                <h4 style="color: var(--primary-green);">Community Care Ethiopia</h4>
+                <p style="color: #666; font-size: 0.9rem;">Verified Partner</p>
+            </div>
+            
+            <div class="fade-up" style="background: white; padding: 30px; border-radius: 12px; box-shadow: var(--shadow); text-align: center;">
+                <img src="images/handshake.jpg" alt="Partnership" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 15px;">
+                <h4 style="color: var(--primary-green);">Hope Foundation</h4>
+                <p style="color: #666; font-size: 0.9rem;">Verified Partner</p>
+            </div>
+            
+            <div class="fade-up" style="background: white; padding: 30px; border-radius: 12px; box-shadow: var(--shadow); text-align: center;">
+                <img src="images/help those who suffer.jpg" alt="Support" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 15px;">
+                <h4 style="color: var(--primary-green);">Relief Network</h4>
+                <p style="color: #666; font-size: 0.9rem;">Verified Partner</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. How We Ensure Safety -->
+    <section class="container" style="padding-top: 60px; padding-bottom: 60px;">
+        <h2 style="font-size: 2.5rem; text-align: center; margin-bottom: 15px;">Your Safety is Our Priority</h2>
+        <p style="text-align: center; color: #666; font-size: 1.1rem; margin-bottom: 50px;">Transparent, verified, and secure every step of the way</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
+            <div class="fade-up" style="text-align: center; padding: 30px;">
+                <div style="width: 80px; height: 80px; margin: 0 auto 20px; border-radius: 50%; background: linear-gradient(135deg, var(--primary-green), var(--primary-yellow)); display: flex; align-items: center; justify-content: center; font-size: 2.5rem; color: white;">
+                    ✓
+                </div>
+                <h3 style="margin-bottom: 12px; color: var(--primary-green);">Verified Users</h3>
+                <p style="color: #666; line-height: 1.7;">All NGOs and recipients go through a thorough verification process before joining our platform.</p>
+            </div>
+            
+            <div class="fade-up" style="text-align: center; padding: 30px;">
+                <div style="width: 80px; height: 80px; margin: 0 auto 20px; border-radius: 50%; background: linear-gradient(135deg, var(--primary-green), var(--primary-yellow)); display: flex; align-items: center; justify-content: center; font-size: 2.5rem; color: white;">
+                    🔒
+                </div>
+                <h3 style="margin-bottom: 12px; color: var(--primary-green);">Secure Transactions</h3>
+                <p style="color: #666; line-height: 1.7;">Your data is protected with industry-standard encryption and security measures.</p>
+            </div>
+            
+            <div class="fade-up" style="text-align: center; padding: 30px;">
+                <div style="width: 80px; height: 80px; margin: 0 auto 20px; border-radius: 50%; background: linear-gradient(135deg, var(--primary-green), var(--primary-yellow)); display: flex; align-items: center; justify-content: center; font-size: 2.5rem; color: white;">
+                    📍
+                </div>
+                <h3 style="margin-bottom: 12px; color: var(--primary-green);">Location Tracking</h3>
+                <p style="color: #666; line-height: 1.7;">Track your donations from posting to delivery, ensuring they reach the right hands.</p>
+            </div>
+            
+            <div class="fade-up" style="text-align: center; padding: 30px;">
+                <div style="width: 80px; height: 80px; margin: 0 auto 20px; border-radius: 50%; background: linear-gradient(135deg, var(--primary-green), var(--primary-yellow)); display: flex; align-items: center; justify-content: center; font-size: 2.5rem; color: white;">
+                    💬
+                </div>
+                <h3 style="margin-bottom: 12px; color: var(--primary-green);">24/7 Support</h3>
+                <p style="color: #666; line-height: 1.7;">Our team is always here to help with any questions or concerns you may have.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. Testimonials -->
+    <section class="container" style="padding-top: 60px; padding-bottom: 60px; background-color: var(--white);">
+        <h2 style="font-size: 2.5rem; text-align: center; margin-bottom: 15px;">What Our Community Says</h2>
+        <p style="text-align: center; color: #666; font-size: 1.1rem; margin-bottom: 50px;">Hear from donors and recipients making a difference</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+            <div class="fade-up" style="background: white; padding: 30px; border-radius: 15px; box-shadow: var(--shadow); border-left: 4px solid var(--primary-green);">
+                <div style="color: var(--primary-yellow); font-size: 2rem; margin-bottom: 15px;">★★★★★</div>
+                <p style="color: #666; line-height: 1.7; margin-bottom: 20px; font-style: italic;">
+                    "This platform made donating so simple! I was able to help a local school get the supplies they needed within days. Highly recommend!"
+                </p>
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <div style="width: 50px; height: 50px; border-radius: 50%; background: var(--primary-green); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700;">
+                        AM
+                    </div>
+                    <div>
+                        <p style="font-weight: 600; margin-bottom: 3px;">Abebe Mekonen</p>
+                        <p style="color: #666; font-size: 0.9rem;">Donor, Addis Ababa</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="fade-up" style="background: white; padding: 30px; border-radius: 15px; box-shadow: var(--shadow); border-left: 4px solid var(--primary-green);">
+                <div style="color: var(--primary-yellow); font-size: 2rem; margin-bottom: 15px;">★★★★★</div>
+                <p style="color: #666; line-height: 1.7; margin-bottom: 20px; font-style: italic;">
+                    "As an NGO coordinator, HelpEthiopia has been a game-changer. We can now connect directly with donors and track every donation. Transparent and efficient!"
+                </p>
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <div style="width: 50px; height: 50px; border-radius: 50%; background: var(--primary-green); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700;">
+                        ST
+                    </div>
+                    <div>
+                        <p style="font-weight: 600; margin-bottom: 3px;">Sara Tadesse</p>
+                        <p style="color: #666; font-size: 0.9rem;">NGO Coordinator, Hawassa</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="fade-up" style="background: white; padding: 30px; border-radius: 15px; box-shadow: var(--shadow); border-left: 4px solid var(--primary-green);">
+                <div style="color: var(--primary-yellow); font-size: 2rem; margin-bottom: 15px;">★★★★★</div>
+                <p style="color: #666; line-height: 1.7; margin-bottom: 20px; font-style: italic;">
+                    "I received warm clothes for my children through this platform. The process was respectful and dignified. Thank you to all the generous donors!"
+                </p>
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <div style="width: 50px; height: 50px; border-radius: 50%; background: var(--primary-green); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700;">
+                        MG
+                    </div>
+                    <div>
+                        <p style="font-weight: 600; margin-bottom: 3px;">Marta Gebre</p>
+                        <p style="color: #666; font-size: 0.9rem;">Recipient, Gondar</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 11. FAQ Section -->
+    <section class="container" style="padding-top: 60px; padding-bottom: 60px;">
+        <h2 style="font-size: 2.5rem; text-align: center; margin-bottom: 15px;">Frequently Asked Questions</h2>
+        <p style="text-align: center; color: #666; font-size: 1.1rem; margin-bottom: 50px;">Everything you need to know about HelpEthiopia</p>
+        
+        <div style="max-width: 800px; margin: 0 auto;">
+            <div class="faq-item fade-up" style="background: white; padding: 25px; border-radius: 12px; margin-bottom: 20px; box-shadow: var(--shadow); border-left: 4px solid var(--primary-green);">
+                <h3 style="color: var(--primary-green); margin-bottom: 12px; font-size: 1.2rem;">How does HelpEthiopia work?</h3>
+                <p style="color: #666; line-height: 1.7;">HelpEthiopia connects donors with verified recipients and NGOs. Simply post what you want to donate or request what you need, and our platform matches you with nearby opportunities. Track everything from posting to delivery.</p>
+            </div>
+            
+            <div class="faq-item fade-up" style="background: white; padding: 25px; border-radius: 12px; margin-bottom: 20px; box-shadow: var(--shadow); border-left: 4px solid var(--primary-green);">
+                <h3 style="color: var(--primary-green); margin-bottom: 12px; font-size: 1.2rem;">Is it free to use?</h3>
+                <p style="color: #666; line-height: 1.7;">Yes! HelpEthiopia is completely free for both donors and recipients. Our mission is to make giving accessible to everyone in Ethiopia.</p>
+            </div>
+            
+            <div class="faq-item fade-up" style="background: white; padding: 25px; border-radius: 12px; margin-bottom: 20px; box-shadow: var(--shadow); border-left: 4px solid var(--primary-green);">
+                <h3 style="color: var(--primary-green); margin-bottom: 12px; font-size: 1.2rem;">How do I verify my NGO?</h3>
+                <p style="color: #666; line-height: 1.7;">NGOs can apply for verification by submitting official documentation through our signup process. Our team reviews each application to ensure legitimacy and transparency.</p>
+            </div>
+            
+            <div class="faq-item fade-up" style="background: white; padding: 25px; border-radius: 12px; margin-bottom: 20px; box-shadow: var(--shadow); border-left: 4px solid var(--primary-green);">
+                <h3 style="color: var(--primary-green); margin-bottom: 12px; font-size: 1.2rem;">What items can I donate?</h3>
+                <p style="color: #666; line-height: 1.7;">You can donate food, clothes, books, electronics, hygiene products, and more. We accept both new and gently used items that can help those in need.</p>
+            </div>
+            
+            <div class="faq-item fade-up" style="background: white; padding: 25px; border-radius: 12px; margin-bottom: 20px; box-shadow: var(--shadow); border-left: 4px solid var(--primary-green);">
+                <h3 style="color: var(--primary-green); margin-bottom: 12px; font-size: 1.2rem;">How is my safety ensured?</h3>
+                <p style="color: #666; line-height: 1.7;">All users go through verification, transactions are tracked, and we provide secure communication channels. Our support team is available 24/7 to address any concerns.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 12. Newsletter CTA -->
+    <section class="container" style="padding-top: 60px; padding-bottom: 60px; background: linear-gradient(135deg, var(--primary-green), var(--primary-yellow)); border-radius: 20px; text-align: center; color: white;">
+        <h2 style="font-size: 2.5rem; margin-bottom: 15px; color: white;">Stay Connected with Our Community</h2>
+        <p style="font-size: 1.1rem; margin-bottom: 35px; color: rgba(255,255,255,0.9);">Get weekly updates on new donations, success stories, and ways to make an impact</p>
+        
+        <div style="max-width: 500px; margin: 0 auto; display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;">
+            <input type="email" placeholder="Enter your email address" style="flex: 1; min-width: 250px; padding: 15px 20px; border-radius: 50px; border: none; font-size: 1rem;">
+            <button class="btn" style="background: white; color: var(--primary-green); padding: 15px 35px; border-radius: 50px; font-weight: 700; border: none; cursor: pointer; font-size: 1rem;">Subscribe</button>
+        </div>
+        
+        <p style="margin-top: 20px; font-size: 0.9rem; color: rgba(255,255,255,0.8);">Join 500+ community members • Unsubscribe anytime</p>
+    </section>
+
+    <!-- 13. Final CTA Section -->
+    <section class="container" style="text-align: center; padding-top: 50px; padding-bottom: 80px;">
+        <h2 style="font-size: 2rem; margin-bottom: 20px;">Ready to Make a Difference?</h2>
+        <p style="font-size: 1.2rem; color: #555; margin-bottom: 30px;">
+            Start by browsing current needs or posting an item you can share.
+        </p>
+        <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+            <a href="items.html" class="btn btn-primary" style="padding: 15px 40px; font-size: 1.1rem;">Browse All Items</a>
+            <a href="donate.html" class="btn btn-secondary" style="padding: 15px 40px; font-size: 1.1rem;">Post Your First Item</a>
+        </div>
+    </section>
+
+    <!-- NEW MULTI-COLUMN FOOTER (Inspired by Byside Community Care) -->
+    <footer class="footer-main">
+        <div class="container footer-content">
+            
+            <div class="footer-logo-col">
+                <div class="footer-logo">Help<span>Ethiopia</span></div>
+                <p class="footer-info">
+                    Connecting generosity with verified needs across Ethiopia.<br>
+                    Addis Ababa, Ethiopia (Mock Address)<br>
+                    Phone: +251-11-234-5678
+                </p>
+                <div class="footer-social" style="margin-top: 20px;">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4>About Us</h4>
+                <ul>
+                    <li><a href="about.html#vision">Vision</a></li>
+                    <li><a href="about.html#story">Our Story</a></li>
+                    <li><a href="about.html#team">Our People</a></li>
+                    <li><a href="dashboard.html">Partner NGOs</a></li>
+                    <li><a href="#">News & Updates</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>What We Do</h4>
+                <ul>
+                    <li><a href="items.html">Browse Donations</a></li>
+                    <li><a href="request.html">Post a Request</a></li>
+                    <li><a href="donate.html">Become a Donor</a></li>
+                    <li><a href="map.html">View Live Map</a></li>
+                    <li><a href="#">Impact Stories</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Get Involved</h4>
+                <ul>
+                    <li><a href="#">Volunteer</a></li>
+                    <li><a href="#">Become a Verified Recipient</a></li>
+                    <li><a href="#">Community Groups</a></li>
+                    <li><a href="signup.html">Sign Up</a></li>
+                    <li><a href="login.html">Login</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Use</a></li>
+                    <li><a href="#">Safeguarding Policy</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 HelpEthiopia. All Rights Reserved.</p>
+            <p>Built with purpose for the Ethiopian community.</p>
+        </div>
+    </footer>
+
+    <!-- Enhanced JS with Animations -->
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Animated Counter for Statistics
+        function animateCounter(element, target, duration = 2000) {
+            let start = 0;
+            const increment = target / (duration / 16); // 60fps
+            
+            const timer = setInterval(() => {
+                start += increment;
+                if (start >= target) {
+                    element.textContent = formatNumber(target);
+                    clearInterval(timer);
+                } else {
+                    element.textContent = formatNumber(Math.floor(start));
+                }
+            }, 16);
+        }
+
+        function formatNumber(num) {
+            if (num >= 1000) {
+                return (num / 1000).toFixed(1) + 'K+';
+            }
+            return num + '+';
+        }
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.3,
+            rootMargin: '0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                    
+                    // Trigger counter animation for stats
+                    if (entry.target.classList.contains('impact-stat')) {
+                        const h2 = entry.target.querySelector('h2');
+                        const text = h2.textContent;
+                        const number = parseInt(text.replace(/[^0-9]/g, ''));
+                        
+                        if (number) {
+                            h2.textContent = '0';
+                            setTimeout(() => {
+                                animateCounter(h2, number, 1500);
+                            }, 200);
+                        }
+                    }
+                    
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.addEventListener('DOMContentLoaded', () => {
+            // Add animation classes to elements
+            document.querySelectorAll('.step-card, .impact-stat, .mission-content, .hero-section').forEach(el => {
+                el.classList.add('fade-up');
+                observer.observe(el);
+            });
+
+            // FAQ Accordion functionality
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.addEventListener('click', function() {
+                    this.classList.toggle('collapsed');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

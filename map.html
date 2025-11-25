@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map View - HelpEthiopia</title>
+    <link rel="icon" type="image/jpeg" href="images/download.jpg">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        #map {
+            width: 100%;
+            height: 600px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        .map-marker {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: transform 0.3s;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+        
+        .map-marker:hover {
+            transform: scale(1.2);
+            z-index: 10;
+        }
+        
+        .marker-donation {
+            background-color: var(--primary-green);
+        }
+        
+        .marker-request {
+            background-color: var(--primary-red);
+        }
+        
+        .map-tooltip {
+            position: absolute;
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: var(--shadow-hover);
+            min-width: 250px;
+            display: none;
+            z-index: 100;
+        }
+        
+        .map-tooltip.active {
+            display: block;
+        }
+        
+        .map-legend {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        
+        .map-controls {
+            margin-bottom: 20px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">Help<span>Ethiopia</span></div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="items.html">Browse Items</a></li>
+                <li><a href="donate.html">Donate</a></li>
+                <li><a href="request.html">Request</a></li>
+                <li><a href="map.html" class="active">Map</a></li>
+            </ul>
+            <div class="auth-links" style="display:flex; gap: 10px;">
+                <a href="signup.html" class="btn" style="background: none; color: var(--dark); padding: 8px 15px; border: 1px solid #ccc;">Sign Up</a>
+                <a href="login.html" class="btn-login">Login</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h2 style="text-align: center; margin-bottom: 10px;">Live Donation Map</h2>
+        <p style="text-align: center; color: #666; margin-bottom: 30px;">
+            See donations and requests across Ethiopia. Click markers for details.
+        </p>
+
+        <div class="map-controls">
+            <select id="mapFilter" class="filter-select">
+                <option value="all">Show All</option>
+                <option value="Donation">Donations Only</option>
+                <option value="Request">Requests Only</option>
+            </select>
+            
+            <select id="mapCategoryFilter" class="filter-select">
+                <option value="">All Categories</option>
+                <option value="Food">Food</option>
+                <option value="Clothes">Clothes</option>
+                <option value="Books">Books</option>
+                <option value="Hygiene">Hygiene</option>
+                <option value="Electronics">Electronics</option>
+            </select>
+        </div>
+
+        <div id="map">
+            <div class="map-legend">
+                <h4 style="margin-bottom: 10px; font-size: 0.9rem;">Legend</h4>
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: var(--primary-green);"></div>
+                    <span>Donations</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: var(--primary-red);"></div>
+                    <span>Requests</span>
+                </div>
+            </div>
+            <div id="mapTooltip" class="map-tooltip"></div>
+        </div>
+
+        <div style="margin-top: 30px; text-align: center;">
+            <a href="donate.html" class="btn btn-primary">Post a Donation</a>
+            <a href="request.html" class="btn btn-secondary" style="margin-left: 10px;">Make a Request</a>
+        </div>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script>
+        // Ethiopian cities coordinates (approximate)
+        const cityCoordinates = {
+            'Addis Ababa': { x: 50, y: 45 },
+            'Addis Ababa, Bole': { x: 52, y: 45 },
+            'Addis Ababa, Piassa': { x: 48, y: 46 },
+            'Hawassa': { x: 45, y: 70 },
+            'Adama': { x: 55, y: 50 },
+            'Gondar': { x: 40, y: 20 },
+            'Bahir Dar': { x: 38, y: 25 },
+            'Mekelle': { x: 60, y: 15 },
+            'Dire Dawa': { x: 75, y: 45 },
+            'Jimma': { x: 35, y: 55 }
+        };
+
+        const map = document.getElementById('map');
+        const tooltip = document.getElementById('mapTooltip');
+        const mapFilter = document.getElementById('mapFilter');
+        const mapCategoryFilter = document.getElementById('mapCategoryFilter');
+
+        function renderMap() {
+            // Clear existing markers
+            const existingMarkers = map.querySelectorAll('.map-marker');
+            existingMarkers.forEach(marker => marker.remove());
+
+            // Get items
+            const items = StorageManager.getItems();
+            const filterType = mapFilter.value;
+            const filterCategory = mapCategoryFilter.value;
+
+            // Filter items
+            const filteredItems = items.filter(item => {
+                const matchesType = filterType === 'all' || item.type === filterType;
+                const matchesCategory = !filterCategory || item.category === filterCategory;
+                return matchesType && matchesCategory;
+            });
+
+            // Create markers
+            filteredItems.forEach(item => {
+                const coords = cityCoordinates[item.location] || { x: Math.random() * 80 + 10, y: Math.random() * 80 + 10 };
+                
+                const marker = document.createElement('div');
+                marker.className = `map-marker marker-${item.type.toLowerCase()}`;
+                marker.style.left = coords.x + '%';
+                marker.style.top = coords.y + '%';
+                marker.innerHTML = item.type === 'Donation' ? '🎁' : '📍';
+                marker.dataset.itemId = item.id;
+
+                marker.addEventListener('click', function(e) {
+                    showTooltip(item, e.pageX, e.pageY);
+                });
+
+                map.appendChild(marker);
+            });
+        }
+
+        function showTooltip(item, x, y) {
+            const urgencyColor = {
+                'Critical': 'var(--primary-red)',
+                'High': '#ff9800',
+                'Medium': '#ffc107',
+                'Low': 'var(--primary-green)'
+            };
+
+            tooltip.innerHTML = `
+                <h3 style="margin-bottom: 10px; color: ${item.type === 'Donation' ? 'var(--primary-green)' : 'var(--primary-red)'};">
+                    ${item.name}
+                </h3>
+                <p style="margin-bottom: 5px;"><strong>Type:</strong> ${item.type}</p>
+                <p style="margin-bottom: 5px;"><strong>Category:</strong> ${item.category}</p>
+                <p style="margin-bottom: 5px;"><strong>Location:</strong> ${item.location}</p>
+                <p style="margin-bottom: 5px;"><strong>Urgency:</strong> 
+                    <span style="color: ${urgencyColor[item.urgency] || '#666'};">${item.urgency}</span>
+                </p>
+                <p style="margin-bottom: 10px;">${item.description}</p>
+                <button class="btn btn-primary" style="width: 100%; padding: 8px;" onclick="viewItemDetails(${item.id})">
+                    View Details
+                </button>
+            `;
+
+            // Position tooltip
+            const mapRect = map.getBoundingClientRect();
+            tooltip.style.left = (x - mapRect.left + 10) + 'px';
+            tooltip.style.top = (y - mapRect.top + 10) + 'px';
+            tooltip.classList.add('active');
+        }
+
+        function viewItemDetails(itemId) {
+            window.location.href = `item-detail.html?id=${itemId}`;
+        }
+
+        // Close tooltip when clicking outside
+        map.addEventListener('click', function(e) {
+            if (!e.target.classList.contains('map-marker')) {
+                tooltip.classList.remove('active');
+            }
+        });
+
+        // Event listeners for filters
+        mapFilter.addEventListener('change', renderMap);
+        mapCategoryFilter.addEventListener('change', renderMap);
+
+        // Initial render
+        renderMap();
+    </script>
+</body>
+</html>
