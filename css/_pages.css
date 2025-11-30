@@ -1,0 +1,169 @@
+/* --- GLOBAL CONTAINER --- */
+/* --- UTILITY CLASSES - ADJUSTED FOR 50/50 FULL-WIDTH SPLIT (Top of Page)--- */
+.hero-text {
+    max-width: 50%; /* New 50% width */
+    flex: 1; 
+}
+
+.hero-image {
+    max-width: 50%; /* New 50% width */
+    flex: 1;
+    min-width: 350px;
+    text-align: right;
+    position: relative;
+}
+
+/* --- HOMEPAGE SPECIFIC SECTIONS --- */
+
+/* Hero Section */
+/* Hero Section */
+.hero-section {
+    min-height: 80vh;
+    display: flex !important; /* FORCES FLEXBOX ON THE PARENT */
+    align-items: center !important; /* FORCES VERTICAL ALIGNMENT */
+    padding-top: 100px;
+    padding-bottom: 50px;
+    animation: fadeInUp 0.8s ease-out; 
+    padding-left: 30px; 
+    padding-right: 30px; 
+}
+
+.hero-title {
+    font-size: 4rem;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    font-weight: 900;
+}
+
+/* Mission Section */
+.mission-section {
+    background-color: var(--white);
+    box-shadow: inset 0 10px 15px rgba(0,0,0,0.05);
+}
+
+.mission-content {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+.mission-text, .mission-visual {
+    flex: 1;
+}
+
+.mission-visual img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    transition: transform 0.5s;
+}
+
+.mission-visual img:hover {
+    transform: scale(1.02);
+}
+
+/* How It Works Section */
+.how-it-works {
+    text-align: center;
+}
+
+.process-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.step-card:nth-child(1) { transition-delay: 0.1s; }
+.step-card:nth-child(2) { transition-delay: 0.2s; }
+.step-card:nth-child(3) { transition-delay: 0.3s; }
+.step-card:nth-child(4) { transition-delay: 0.4s; }
+
+.impact-stat:nth-child(1) { transition-delay: 0.1s; }
+.impact-stat:nth-child(2) { transition-delay: 0.2s; }
+.impact-stat:nth-child(3) { transition-delay: 0.3s; }
+.impact-stat:nth-child(4) { transition-delay: 0.4s; }
+
+.floating-info-card {
+    animation: floatUp 3s ease-in-out infinite;
+}
+
+
+/* Impact Section */
+.impact-section {
+    background-color: var(--primary-green);
+    color: var(--white);
+    text-align: center;
+    padding: 80px 5%;
+}
+
+.impact-grid {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.impact-stat {
+    margin: 20px;
+}
+
+.impact-stat h2 {
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--primary-yellow);
+    line-height: 1;
+}
+
+/* --- UTILITY CLASSES (Helper Styles for specific sections) --- */
+
+.hero-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.mission-text h3 {
+    font-size: 1.8rem;
+    color: var(--primary-green);
+    margin-bottom: 15px;
+}
+
+.mission-text p {
+    margin-bottom: 20px;
+}
+
+.mission-visual-placeholder {
+    background-color: var(--dark);
+    padding: 50px;
+    border-radius: 15px;
+    text-align: center;
+    color: white;
+}
+
+.auth-links {
+    display: flex;
+    gap: 10px;
+}
+
+.signup-btn {
+    background: none;
+    color: var(--dark);
+    padding: 8px 15px;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+/* FIXED: Detail content class */
+.detail-content {
+    padding: 40px;
+}

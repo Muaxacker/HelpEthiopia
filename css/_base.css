@@ -1,0 +1,186 @@
+/* --- BASE AND LAYOUT STYLES --- */
+
+/* Ethiopian Color Palette Variables */
+:root {
+    --primary-green: #2d963c; /* Darker Green (Flag) */
+    --primary-yellow: #f4c430; /* Bright Yellow (Flag) */
+    --primary-red: #d9381e; /* Bright Red (Flag) */
+    --white: #ffffff;
+    --dark: #1f2937; /* Dark Gray/Black for text */
+    --light-gray: #f8f8f8;
+    --heading-color: var(--dark);
+    --text-color: #4b5563;
+    --shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    --font-family: 'Inter', sans-serif;
+}
+
+/* Base Reset and Global Typography */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    color: var(--text-color);
+    background-color: var(--light-gray);
+    line-height: 1.6;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    text-decoration: none;
+    color: var(--dark);
+    transition: color 0.3s ease;
+}
+
+/* --- NAVIGATION STYLES (NEW) --- */
+
+header {
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    /* The background/shadow spans the full viewport width */
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* Constrain the inner content to a max-width and center it */
+    max-width: 1400px;
+    width: 100%; /* Ensures it fills its container up to 1400px */
+    margin: 0 auto;
+    padding: 15px 30px;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--dark);
+    letter-spacing: -0.5px;
+}
+
+.logo span {
+    /* Apply Ethiopian gradient to the key word */
+    background: linear-gradient(90deg, var(--primary-red), var(--primary-yellow), var(--primary-green));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    padding-left: 5px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    margin: 0;
+}
+
+.nav-links li a {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-color);
+    position: relative;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+}
+
+/* Link Hover Effect: Yellow Underline */
+.nav-links li a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background-color: var(--primary-yellow);
+    transition: width 0.3s ease;
+    border-radius: 2px;
+}
+
+.nav-links li a:hover {
+    color: var(--primary-green);
+}
+
+.nav-links li a:hover::after,
+.nav-links li a.active::after {
+    width: 100%;
+    background-color: var(--primary-green);
+}
+
+.auth-links {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.btn-login {
+    /* Use the inverse gradient (Red-Yellow-Green) for high contrast */
+    background: linear-gradient(135deg, var(--primary-red), var(--primary-yellow), var(--primary-green));
+    color: white !important;
+    padding: 10px 25px;
+    border-radius: 50px;
+    font-weight: 600;
+    box-shadow: 0 5px 15px rgba(217, 56, 30, 0.4);
+    transition: all 0.3s ease;
+}
+
+.btn-login:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(217, 56, 30, 0.6);
+}
+
+/* --- UTILITY & BREAKPOINTS --- */
+
+/* Hide mobile menu toggle by default */
+.menu-toggle {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+@media (max-width: 1024px) {
+    .navbar {
+        padding: 15px 20px;
+    }
+}
+
+@media (max-width: 850px) {
+    .navbar {
+        flex-wrap: wrap;
+    }
+
+    .nav-links {
+        display: none; /* Hide standard menu on mobile */
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        padding-top: 15px;
+        background-color: rgba(255, 255, 255, 0.98);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+
+    .nav-links li {
+        padding: 10px 0;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    /* Basic structure to allow JS to show/hide the menu */
+    .nav-links.open {
+        display: flex;
+    }
+    
+    .auth-links {
+        margin-left: auto;
+    }
+}

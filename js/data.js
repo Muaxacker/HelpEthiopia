@@ -1,6 +1,7 @@
 // js/data.js
 
 // Default items for initial load
+ 
 const defaultItems = [
     {
         id: 1,
@@ -94,11 +95,12 @@ const defaultItems = [
         location: "Bahir Dar",
         urgency: "Low",
         status: "Available",
-        image: "images/charger.jPG",
+        image: "images/charger.JPG",
         description: "Universal phone charger, compatible with multiple devices.",
         datePosted: new Date().toISOString()
     }
 ];
+
 
 // LocalStorage Manager
 const StorageManager = {

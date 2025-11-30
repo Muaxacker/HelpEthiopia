@@ -17,10 +17,12 @@
             <div class="logo">Help<span>Ethiopia</span></div>
             <ul class="nav-links">
                 <li><a href="#hero" class="active">Home</a></li>
-                <li><a href="#mission">Our Mission</a></li>
+                <li><a href="#mission">Mission</a></li>
                 <li><a href="#process">How It Works</a></li>
                 <li><a href="items.html">Browse Items</a></li> 
                 <li><a href="map.html">Map View</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
             <div class="auth-links" style="display:flex; gap: 10px;">
                 <a href="signup.html" class="btn" style="background: none; color: var(--dark); padding: 8px 15px; border: 1px solid #ccc;">Sign Up</a>
@@ -30,33 +32,36 @@
     </header>
     
     <!-- 1. Hero Section (High Impact) -->
-    <section class="container hero-section" id="hero">
-        <div class="hero-text" style="max-width: 55%;">
-            <div class="pill-badge" style="display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; border-radius: 50px; background: rgba(45, 150, 60, 0.1); color: var(--primary-green); font-weight: 700; font-size: 0.875rem; margin-bottom: 20px;">
-                <span style="width: 8px; height: 8px; border-radius: 50%; background: var(--primary-green); animation: pulse 2s ease-in-out infinite;"></span>
-                Community-first • Verified • Local
-            </div>
-            <h1 class="hero-title">
-                The Smart Way to Give and Get in <span style="color: var(--primary-red);">Ethiopia</span>.
-            </h1>
-            <p style="font-size: 1.35rem; margin-bottom: 40px; color: #555; font-weight: 500;">
-                Connect directly with verified local needs. HelpEthiopia is the transparent, organized bridge making generosity efficient and impactful.
-            </p>
-            <div class="hero-buttons" style="display: flex; gap: 15px; flex-wrap: wrap;">
-                <a href="donate.html" class="btn btn-primary">Post a Donation</a>
-                <a href="request.html" class="btn btn-secondary">Make a Request</a>
-            </div>
+<section class="container hero-section" id="hero">
+    <div class="hero-text">
+        <div class="pill-badge" style="display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; border-radius: 50px; background: rgba(45, 150, 60, 0.1); color: var(--primary-green); font-weight: 700; font-size: 0.875rem; margin-bottom: 20px;">
+            <span style="width: 8px; height: 8px; border-radius: 50%; background: var(--primary-green); animation: pulse 2s ease-in-out infinite;"></span>
+            Community-first • Verified • Local
         </div>
+        <h1 class="hero-title">
+            The Smart Way to Give and Get in <span style="color: var(--primary-red);">Ethiopia</span>.
+        </h1>
+        <p style="font-size: 1.35rem; margin-bottom: 40px; color: #555; font-weight: 500;">
+            Connect directly with verified local needs. HelpEthiopia is the transparent, organized bridge making generosity efficient and impactful.
+        </p>
+        <div class="hero-buttons" style="display: flex; gap: 15px; flex-wrap: wrap;">
+            <a href="donate.html" class="btn btn-primary">Post a Donation</a>
+            <a href="request.html" class="btn btn-secondary">Make a Request</a>
+        </div>
+    </div>
+    
+    <div class="hero-image">
+        <img src="images/ethiopian map.png" alt="Digital community connection in Ethiopia" style="width: 100%; height: auto; border-radius: 20px; box-shadow: 0 15px 30px rgba(0,0,0,0.15);">
         
-        <div class="hero-image" style="max-width: 45%; min-width: 350px; text-align: right; position: relative;">
-             <!-- Hero image showing community connection -->
-            <img src="images/digital connection Africa.jpg" alt="Digital community connection in Ethiopia" style="width: 100%; height: auto; border-radius: 20px; box-shadow: 0 15px 30px rgba(0,0,0,0.15);">
-            
-            <!-- Floating info card -->
-            <div class="floating-info-card" style="position: absolute; bottom: 20px; left: 20px; background: white; padding: 15px 20px; border-radius: 12px; box-shadow: 0 8px 30px rgba(0,0,0,0.15); display: flex; align-items: center; gap: 12px; animation: floatUp 3s ease-in-out infinite;">
-                <div style="width: 50px; height: 50px; border-radius: 10px; background: linear-gradient(135deg, var(--primary-green), var(--primary-yellow)); display: flex; align-items: center; justify-content: center; color: white; font-size: 24px;">
-                    📍
-                </div>
+        <div class="floating-info-card" style="position: absolute; bottom: 20px; left: 20px; background: white; padding: 15px 20px; border-radius: 12px; box-shadow: 0 8px 30px rgba(0,0,0,0.15); display: flex; align-items: center; gap: 12px; animation: floatUp 3s ease-in-out infinite;">
+            <div style="width: 50px; height: 50px; border-radius: 10px; background: linear-gradient(135deg, var(--primary-green), var(--primary-yellow)); display: flex; align-items: center; justify-content: center; color: white; font-size: 24px;">
+                📍
+            </div>
+            <div>
+                 </div>
+        </div>
+    </div>
+</section>
                 <div>
                     <strong style="display: block; font-size: 14px; color: var(--dark);">Live Donations</strong>
                     <span style="font-size: 13px; color: #666;">120+ items available</span>
@@ -151,6 +156,7 @@
         <h2 style="font-size: 2.5rem; text-align: center; margin-bottom: 15px;">See What's Happening Right Now</h2>
         <p style="text-align: center; color: #666; font-size: 1.1rem; margin-bottom: 40px;">Real donations and requests from our community</p>
         
+        <a href="items.html">
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px;">
             <div class="step-card fade-up" style="border-top-color: var(--primary-green);">
                 <img src="images/jacket.jpg" alt="Winter Jacket" style="width: 100%; height: 180px; object-fit: cover; border-radius: 10px; margin-bottom: 15px;">
@@ -179,7 +185,9 @@
                 <h4 style="margin-top: 10px; margin-bottom: 8px;">First Aid Kits</h4>
                 <p style="color: #666; font-size: 0.95rem;">Gondar • Critical</p>
             </div>
+
         </div>
+        </a>
         
         <div style="text-align: center; margin-top: 40px;">
             <a href="items.html" class="btn btn-primary" style="padding: 12px 35px;">View All Items →</a>
@@ -266,7 +274,7 @@
     </section>
 
     <!-- 8. Partner NGOs -->
-    <section class="container" style="padding-top: 60px; padding-bottom: 60px; background-color: var(--white);">
+    <section id="pngo" class="container" style="padding-top: 60px; padding-bottom: 60px; background-color: var(--white);">
         <h2 style="font-size: 2.5rem; text-align: center; margin-bottom: 15px;">Trusted by Leading Organizations</h2>
         <p style="text-align: center; color: #666; font-size: 1.1rem; margin-bottom: 50px;">Working together to create lasting impact</p>
         
@@ -470,7 +478,7 @@
                     <li><a href="about.html#vision">Vision</a></li>
                     <li><a href="about.html#story">Our Story</a></li>
                     <li><a href="about.html#team">Our People</a></li>
-                    <li><a href="dashboard.html">Partner NGOs</a></li>
+                    <li><a href="#pngo">Partner NGOs</a></li>
                     <li><a href="#">News & Updates</a></li>
                 </ul>
             </div>
@@ -500,9 +508,9 @@
             <div class="footer-col">
                 <h4>Legal</h4>
                 <ul>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms of Use</a></li>
-                    <li><a href="#">Safeguarding Policy</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms of Use</a></li>
+                    <li><a href="privacy.html">Safeguarding Policy</a></li>
                     <li><a href="contact.html">Contact Us</a></li>
                 </ul>
             </div>

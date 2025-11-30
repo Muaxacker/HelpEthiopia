@@ -1,0 +1,523 @@
+/* contact.css */
+/* Contact Page Styles with Ethiopian Colors */
+
+/* Contact Page Layout */
+.site-main {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    min-height: calc(100vh - 200px);
+    padding: 60px 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header Section with Ethiopian Colors */
+.container > h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--primary-green), var(--primary-red));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-align: center;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.container > p {
+    font-size: 1.2rem;
+    color: #666;
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 50px;
+    line-height: 1.6;
+}
+
+/* Section Styling with Color Accents */
+section {
+    background: var(--white);
+    border-radius: 15px;
+    padding: 40px;
+    margin-bottom: 40px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-left: 5px solid var(--primary-green);
+}
+
+section:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+    border-left-color: var(--primary-yellow);
+}
+
+section h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-green);
+    margin-bottom: 30px;
+    text-align: center;
+    position: relative;
+}
+
+section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-green), var(--primary-yellow), var(--primary-red));
+    border-radius: 2px;
+}
+
+/* Contact Information Grid with Color Coding */
+section:first-of-type > div {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+/* Address Box - Green Theme */
+section:first-of-type > div > div:nth-child(1) {
+    text-align: center;
+    padding: 25px;
+    background: linear-gradient(135deg, rgba(45, 150, 60, 0.1), rgba(45, 150, 60, 0.05));
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    border: 2px solid var(--primary-green);
+    position: relative;
+    overflow: hidden;
+}
+
+section:first-of-type > div > div:nth-child(1)::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-green), #45a049);
+}
+
+/* Phone Box - Yellow Theme */
+section:first-of-type > div > div:nth-child(2) {
+    text-align: center;
+    padding: 25px;
+    background: linear-gradient(135deg, rgba(244, 196, 48, 0.1), rgba(244, 196, 48, 0.05));
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    border: 2px solid var(--primary-yellow);
+    position: relative;
+    overflow: hidden;
+}
+
+section:first-of-type > div > div:nth-child(2)::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-yellow), #f57c00);
+}
+
+/* Email Box - Red Theme */
+section:first-of-type > div > div:nth-child(3) {
+    text-align: center;
+    padding: 25px;
+    background: linear-gradient(135deg, rgba(217, 56, 30, 0.1), rgba(217, 56, 30, 0.05));
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    border: 2px solid var(--primary-red);
+    position: relative;
+    overflow: hidden;
+}
+
+section:first-of-type > div > div:nth-child(3)::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-red), #ff6b4a);
+}
+
+/* Hover Effects with Ethiopian Colors */
+section:first-of-type > div > div:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+section:first-of-type > div > div:nth-child(1):hover {
+    border-color: #45a049;
+    background: linear-gradient(135deg, rgba(45, 150, 60, 0.15), rgba(45, 150, 60, 0.1));
+}
+
+section:first-of-type > div > div:nth-child(2):hover {
+    border-color: #f57c00;
+    background: linear-gradient(135deg, rgba(244, 196, 48, 0.15), rgba(244, 196, 48, 0.1));
+}
+
+section:first-of-type > div > div:nth-child(3):hover {
+    border-color: #ff6b4a;
+    background: linear-gradient(135deg, rgba(217, 56, 30, 0.15), rgba(217, 56, 30, 0.1));
+}
+
+/* Contact Method Headings with Color Icons */
+section:first-of-type h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Color-coded headings */
+section:first-of-type > div > div:nth-child(1) h3 {
+    color: var(--primary-green);
+}
+
+section:first-of-type > div > div:nth-child(2) h3 {
+    color: #b8860b; /* Darker yellow for better contrast */
+}
+
+section:first-of-type > div > div:nth-child(3) h3 {
+    color: var(--primary-red);
+}
+
+section:first-of-type p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+section:first-of-type a {
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-weight: 500;
+}
+
+/* Color-coded links */
+section:first-of-type > div > div:nth-child(1) a {
+    color: var(--primary-green);
+}
+
+section:first-of-type > div > div:nth-child(1) a:hover {
+    color: #217d30;
+}
+
+section:first-of-type > div > div:nth-child(2) a {
+    color: #b8860b;
+}
+
+section:first-of-type > div > div:nth-child(2) a:hover {
+    color: #8b6914;
+}
+
+section:first-of-type > div > div:nth-child(3) a {
+    color: var(--primary-red);
+}
+
+section:first-of-type > div > div:nth-child(3) a:hover {
+    color: #a82a1a;
+}
+
+/* Form Styling with Ethiopian Colors */
+#contactForm {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    color: var(--dark);
+    margin-bottom: 8px;
+    font-size: 1rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 14px 18px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: var(--white);
+    font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-green);
+    box-shadow: 0 0 0 3px rgba(45, 150, 60, 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 140px;
+}
+
+/* Button with Ethiopian Gradient */
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary-green), var(--primary-yellow), var(--primary-red));
+    color: white;
+    border: none;
+    padding: 15px 35px;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    margin: 30px auto 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(45, 150, 60, 0.4);
+}
+
+.btn-primary:hover::before {
+    left: 100%;
+}
+
+/* Social Media Section with Colorful Buttons */
+section:last-of-type {
+    text-align: center;
+}
+
+section:last-of-type p {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+section:last-of-type > div {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+/* Colorful social media buttons */
+section:last-of-type a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    min-width: 140px;
+    justify-content: center;
+}
+
+/* Facebook - Green */
+section:last-of-type a:nth-child(1) {
+    background: linear-gradient(135deg, var(--primary-green), #45a049);
+}
+
+section:last-of-type a:nth-child(1):hover {
+    background: linear-gradient(135deg, #45a049, var(--primary-green));
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(45, 150, 60, 0.3);
+}
+
+/* Twitter - Yellow */
+section:last-of-type a:nth-child(2) {
+    background: linear-gradient(135deg, var(--primary-yellow), #f57c00);
+}
+
+section:last-of-type a:nth-child(2):hover {
+    background: linear-gradient(135deg, #f57c00, var(--primary-yellow));
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(244, 196, 48, 0.3);
+}
+
+/* Instagram - Red */
+section:last-of-type a:nth-child(3) {
+    background: linear-gradient(135deg, var(--primary-red), #ff6b4a);
+}
+
+section:last-of-type a:nth-child(3):hover {
+    background: linear-gradient(135deg, #ff6b4a, var(--primary-red));
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(217, 56, 30, 0.3);
+}
+
+/* LinkedIn - Mixed Ethiopian Colors */
+section:last-of-type a:nth-child(4) {
+    background: linear-gradient(135deg, var(--primary-green), var(--primary-yellow), var(--primary-red));
+}
+
+section:last-of-type a:nth-child(4):hover {
+    background: linear-gradient(135deg, var(--primary-red), var(--primary-yellow), var(--primary-green));
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(45, 150, 60, 0.3);
+}
+
+/* Footer Styling with Ethiopian Colors */
+.footer-main {
+    background: linear-gradient(135deg, var(--dark), #2a2a2a);
+    color: var(--white);
+    padding: 25px 0;
+    text-align: center;
+    border-top: 4px solid var(--primary-green);
+}
+
+.footer-main .container p {
+    margin: 5px 0;
+    color: #ccc;
+}
+
+.footer-main .container p:first-child {
+    font-weight: 600;
+    color: var(--white);
+}
+
+.footer-main .container p:last-child {
+    color: var(--primary-yellow);
+    font-style: italic;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .site-main {
+        padding: 40px 0;
+    }
+    
+    .container > h1 {
+        font-size: 2.5rem;
+    }
+    
+    .container > p {
+        font-size: 1.1rem;
+        margin-bottom: 40px;
+    }
+    
+    section {
+        padding: 30px 20px;
+        margin-bottom: 30px;
+    }
+    
+    section h2 {
+        font-size: 1.7rem;
+    }
+    
+    section:first-of-type > div {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    section:first-of-type > div > div {
+        padding: 20px;
+    }
+    
+    section:last-of-type > div {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    section:last-of-type a {
+        width: 200px;
+        justify-content: center;
+    }
+    
+    .btn-primary {
+        width: 100%;
+        max-width: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .container > h1 {
+        font-size: 2rem;
+    }
+    
+    section h2 {
+        font-size: 1.5rem;
+    }
+    
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 12px 15px;
+    }
+}
+
+/* Simple animations with Ethiopian colors */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes colorPulse {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(45, 150, 60, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 0 10px rgba(45, 150, 60, 0);
+    }
+}
+
+section {
+    animation: fadeIn 0.6s ease-out;
+}
+
+section:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+section:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+section:nth-child(4) {
+    animation-delay: 0.3s;
+}
+
+/* Add a subtle pulse to the main button */
+.btn-primary {
+    animation: colorPulse 2s infinite;
+}

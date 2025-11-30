@@ -1,0 +1,417 @@
+/* --- COMPONENT STYLES --- */
+
+/* --- SHARED BUTTONS --- */
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    border-radius: 25px;
+    cursor: pointer;
+    border: none;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+/* Primary Button: Ethiopian Gradient with Shimmer and Pulse */
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary-green), var(--primary-yellow), var(--primary-red));
+    color: white;
+    border: none;
+    padding: 15px 35px;
+    border-radius: 50px; /* More rounded */
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    animation: colorPulse 2s infinite; /* Added pulse animation */
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(45, 150, 60, 0.4);
+}
+
+.btn-primary:hover::before {
+    left: 100%;
+}
+
+/* Secondary Button (Remains classic solid yellow) */
+.btn-secondary {
+    background-color: var(--primary-yellow);
+    color: var(--dark);
+    box-shadow: 0 4px 10px rgba(244, 196, 48, 0.4);
+    padding: 12px 30px; /* Reset padding to standard size */
+    border-radius: 25px; /* Reset border radius to standard size */
+    font-size: 1rem;
+}
+
+/* Titles and Typography */
+h1, h2, h3, h4 {
+    color: var(--heading-color);
+    line-height: 1.2;
+}
+
+/* Section Styling (General Content Blocks) - Added from contact.css for interactive blocks */
+section {
+    background: var(--white);
+    border-radius: 15px;
+    padding: 40px;
+    margin-bottom: 40px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-left-color 0.3s ease;
+    border-left: 5px solid var(--primary-green);
+}
+
+section:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+    border-left-color: var(--primary-yellow);
+}
+
+/* Content Block Styling (For interactive DIVs and generic containers) */
+.content-block {
+    background: var(--white);
+    border-radius: 15px;
+    padding: 40px;
+    margin-bottom: 40px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-left-color 0.3s ease;
+    border-left: 5px solid var(--primary-green);
+    cursor: pointer; /* Ensure cursor is changed to indicate interactivity */
+}
+
+.content-block:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+    border-left-color: var(--primary-yellow);
+}
+
+/* How It Works Step Card (Enhanced with Rotation Fix) */
+.step-card {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    text-align: center;
+    border-top: 5px solid var(--primary-green);
+    /* Specific transition for smooth movement */
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), border-top-color 0.3s ease;
+    
+    /* Ensure smooth GPU rendering for rotation */
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
+.step-card:hover {
+    /* Rotation increased to 1deg and force 3D context */
+    transform: translateY(-8px) rotate(1deg); 
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15); /* Enhanced shadow */
+    border-top-color: var(--primary-yellow);
+    z-index: 10;
+}
+
+.step-card h3 {
+    margin-top: 15px;
+    margin-bottom: 10px;
+    color: var(--primary-green);
+}
+
+.step-icon {
+    font-size: 2.5rem;
+    color: var(--primary-red);
+}
+
+/* --- FORM STYLES (Pulled from contact.css) --- */
+.form-container {
+    max-width: 600px;
+    margin: 40px auto;
+    background: var(--white);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+}
+
+.form-group {
+    margin-bottom: 25px; /* Increased margin */
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--dark);
+}
+
+.form-control {
+    width: 100%;
+    padding: 14px 18px; /* Increased padding */
+    border: 2px solid #e0e0e0;
+    border-radius: 10px; /* More rounded corners */
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: var(--white);
+    font-family: inherit;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--primary-green);
+    box-shadow: 0 0 0 3px rgba(45, 150, 60, 0.1); /* Green glow focus */
+}
+
+textarea.form-control {
+    min-height: 140px; /* Deeper text area */
+    resize: vertical;
+}
+
+/* --- SEARCH & FILTER STYLES (Using new form control focus) --- */
+.search-container {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.search-input {
+    flex: 2;
+    min-width: 250px;
+    padding: 14px 20px; /* Increased padding */
+    border: 2px solid #e0e0e0;
+    border-radius: 25px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: var(--primary-green);
+    box-shadow: 0 0 0 3px rgba(45, 150, 60, 0.1); /* Green glow focus */
+}
+
+.filter-select {
+    flex: 1;
+    min-width: 150px;
+    padding: 14px 15px; /* Increased padding */
+    border: 2px solid #e0e0e0;
+    border-radius: 25px;
+    font-size: 1rem;
+    background-color: var(--white);
+    cursor: pointer;
+    transition: border-color 0.3s;
+}
+
+.filter-select:focus {
+    outline: none;
+    border-color: var(--primary-green);
+    box-shadow: 0 0 0 3px rgba(45, 150, 60, 0.1); /* Green glow focus */
+}
+
+/* --- ITEMS GRID --- */
+.items-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.item-card {
+    background: var(--white);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.item-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15); /* Enhanced hover shadow */
+}
+
+.item-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.item-content {
+    padding: 20px;
+}
+
+.item-category {
+    display: inline-block;
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.item-title {
+    font-size: 1.3rem;
+    color: var(--dark);
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.item-info {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+/* --- BADGES --- */
+.badge {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-right: 8px;
+    margin-bottom: 10px;
+}
+
+.badge-donation {
+    background-color: #e8f5e9;
+    color: var(--primary-green);
+}
+
+.badge-request {
+    background-color: #fff3e0;
+    color: #f57c00;
+}
+
+.badge-urgent {
+    background-color: #ffebee;
+    color: var(--primary-red);
+    animation: pulse 2s infinite; /* Uses the keyframe from the contact style */
+}
+
+/* FAQ Accordion Styles */
+.faq-item {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+    transform: translateX(5px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.12) !important;
+}
+
+.faq-item h3::before {
+    content: '▼';
+    margin-right: 10px;
+    font-size: 0.8rem;
+    transition: transform 0.3s ease;
+    display: inline-block;
+}
+
+.faq-item.collapsed h3::before {
+    transform: rotate(-90deg);
+}
+
+.faq-item p {
+    max-height: 500px;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.4s ease, margin 0.4s ease;
+}
+
+.faq-item.collapsed p {
+    max-height: 0;
+    opacity: 0;
+    margin: 0;
+}
+
+/* Partner logos hover effect */
+.partner-logo {
+    transition: all 0.3s ease;
+}
+
+.partner-logo:hover {
+    transform: scale(1.1);
+}
+
+/* Safety feature cards */
+.safety-card {
+    transition: all 0.3s ease;
+}
+
+.safety-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15) !important; /* Enhanced hover shadow */
+}
+
+/* Testimonial cards */
+.testimonial-card {
+    transition: all 0.3s ease;
+}
+
+.testimonial-card:hover {
+    transform: scale(1.02);
+}
+
+/* Category cards hover */
+.category-card:hover {
+    background: linear-gradient(135deg, var(--primary-green), var(--primary-yellow));
+    color: white !important;
+}
+
+.category-card:hover h4,
+.category-card:hover p {
+    color: white !important;
+}
+
+/* --- ANIMATIONS (Pulled from contact.css) --- */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes colorPulse {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(45, 150, 60, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 0 10px rgba(45, 150, 60, 0);
+    }
+}
+
+/* Apply fade-in animation to primary components for smoother loading */
+section, .step-card, .item-card, .safety-card, .testimonial-card, .content-block {
+    animation: fadeIn 0.6s ease-out;
+}
+
+/* --- EMERGENCY FIXES FOR ANIMATIONS/DISPLAY --- */
+/* Force show all content if animations aren't working */
+.fade-up {
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+
+/* The default 'section' style includes display: block !important; opacity: 1 !important; 
+   at the top, so we remove the duplicate definition here, but keep the animation 
+   application above.
+*/
